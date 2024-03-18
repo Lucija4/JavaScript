@@ -1,50 +1,57 @@
+// Konverzije vrsta podataka - type Conversion
+
 const inputGodina = "2000";
 
-// prvi način promejen stringa u broj pomoću parseInt JS funkcije
+// prvi način promjene stringa u broj pomoću parseInt JS funkcije
 const godina1 = parseInt(inputGodina);
 
 // drugi način promjene stringa u broj pomoću Numbera
 const godina2 = Number(inputGodina);
 
-//treći način promjene stringa u broj pomoću + operatora
-const godina3 = +inputGodina
+// treći način promjene stringa u broj pomoću + operatora
+const godina3 = +inputGodina;
 
 const stringGodina = String(godina1);
 
-console.log(typeof stringGodina, stringGodina); 
-console.log(inputGodina + 18); 
+console.log(typeof stringGodina, stringGodina);
+console.log(godina1 + 18);
 
-//primjer sa dec brojem
+// primjer sa dec brojem
 
 const decBroj = "10.5";
 
-const stringDecBroj1 = parseInt(decBroj);
-const stringDecBroj2 = parseFloat(decBroj);
+const stringDecBroj1 = parseInt(decBroj); // zaokružuje broj na niže, znači od 10.5 zaokružuje na 10
+const stringDecBroj2 = parseFloat(decBroj); // prebacit će string u broj i ostavit vrijednost koja je 10.5
 
 console.log(stringDecBroj2);
 
-console.log(Number("Lucija"));
+console.log(Number("Igor"));
 console.log(String(23));
 
-//--------------------------------------------------------------------------------
+//-----------------------------------------------------------------------------------------
 
-//Prisilna automatska konverzija vrsta podataka - type Coercion
+// Prisilna/automaska konverzija vrste podataka - type Coercion
 
 console.log("Ja imam " + 1 + " auto");
 
-//ovo funkcionira jer oduzimanje u ovoj varijanti JS prepoznaje i pretvara sve u brojeve
+// ovo funkcionira jer oduzimanje u ovoj varijanti JS prepoznaje i pretvara sve u brojeve
 console.log("23" - "10" - 3);
 
-/*ovdje ne funkcionira na isti način jer se prvo događa "konkatenacija" u string "2310, tek nakon toga dolazi oduzimanje i pretvaranje svega u broj*/
-
+/* ovdje ne funkcionira na isti način, jer se prvo događa "konkatenacija" u string "2310",
+ tek nakon toga dolazi oduzimanje i pretvaranje svega u broj */
 console.log("23" + "10" - 3);
 
-//zbrajanje sa Boolean vrijednoatima true pretvara u broj 1, a false u broj 0.
-
+// zbrajanje sa Boolean vrijednostima true pretvara u broj 1, a false u broj 0.
 console.log(5 + true);
-console.log(5+false);
+console.log(5 + false);
 
-//Dobit ćemo NaN jer ne znamo koj je ovo broj pa samim time dobijem NaN...
+// Dobit ćemo NaN jer ne znamo koji je ovo broj pa samim time dobijem NaN...
 console.log(5 + undefined);
 
+/* Kod brojeva, ako radimo matematičke operacije sa brojevima, zbrajanje može dovesti do konkatenacije stringova, ako je samo 
+jedan od 2 broja u obliku stringa, dok će normalno raditi ako su svi članovi brojevi. S druge strane sve druge matematičke
+operacije koje uključuju brojeve koji se nalaze u stringu i/ili brojeve će automatski string pretvoriti u broj i odraditi
+zadanu matematičku operaciju */
 
+console.log("24" * "2");
+console.log(5 + 100 + 24 + "12" + 2 + 3 + 4);
